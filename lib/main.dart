@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:medical_connect/authentication/login_page/login_page.dart';
 import 'package:medical_connect/authentication/signup_page/signup_page.dart';
-import 'package:medical_connect/home_page/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,8 +29,8 @@ class LoadingPage extends StatefulWidget {
 class _LoadingPageState extends State<LoadingPage> {
   Future<bool> redirect() async {
     bool login = false;
-    await Future.delayed(const Duration(seconds: 0), () {
-      login = true;
+    await Future.delayed(const Duration(seconds: 2), () {
+      login = false;
     });
     return login;
   }
@@ -43,7 +43,7 @@ class _LoadingPageState extends State<LoadingPage> {
           builder: (BuildContext context, AsyncSnapshot<bool> login) {
             if (login.connectionState == ConnectionState.done) {
               if (login.data == true) {
-                return const HomePage();
+                return const LoginPage();
               } else {
                 return const SingUpPage();
               }
