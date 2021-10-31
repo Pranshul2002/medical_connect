@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical_connect/home_page/home_page.dart';
 
 class SingUpPage extends StatefulWidget {
   const SingUpPage({Key? key}) : super(key: key);
@@ -275,6 +276,9 @@ class _SingUpPageState extends State<SingUpPage> {
                     setState(() {
                       i++;
                     });
+                  } else {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => HomePage()));
                   }
                 },
                 child: Container(
